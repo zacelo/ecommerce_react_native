@@ -52,20 +52,32 @@ export const styles = StyleSheet.create({
       fontSize: 20,
     },
     modalContainer:{
-     flex:1,
+     marginTop:160,
      backgroundColor:'#861578',
      justifyContent:'center',
      alignItems:'center',
-          
+     
+     height:400    
     },
     modalText:{
       fontSize:25,
       fontWeight: '600',
-      color:'white',
+      color:'#DDC5C0',
       textAlign:'center',
-      marginBottom:55      
+      marginBottom:2     
     },
-    buttonModalContainer:{      
+    modalText2:{
+      fontSize:30,
+      fontWeight: '600',
+      color:'white',
+            
+      borderColor: 'black',
+      textAlign:'center',
+      marginTop:25,
+           
+    },
+    buttonModalContainer:{
+      marginTop: 65,      
       flexDirection:'row',      
     },
     buttonModal:{

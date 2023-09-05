@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { FlatList, Modal, Text, TextInput, View } from 'react-native';
 import { styles } from './StyleApp';
 import { Button } from '@rneui/themed';
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <StatusBar style="auto" />
       <View style={styles.inputContainer}>
         <TextInput
           placeholder='Ingrese tarea'
@@ -61,11 +63,12 @@ export default function App() {
           keyExtractor={item => item.id}
         />
       </View>
-      <Modal
+      <Modal        
         animationType="slide"
         visible={visibleModal}      >
         <View style={styles.modalContainer}>
-          <Text style={styles.modalText}>Esta seguro que desea eliminar {deleteModalItem.value}</Text>
+          <Text style={styles.modalText}>Esta seguro que desea eliminar </Text>
+          <Text style={styles.modalText2} >{deleteModalItem.value}</Text>
           <View style={styles.buttonModalContainer}>
             <Button color="warning"
               titleStyle={{
