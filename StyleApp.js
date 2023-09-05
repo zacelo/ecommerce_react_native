@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     button: {
       width: 50,
       height: 42,
-      
+     
     },
     listContainer: {
       alignItems: 'center',
@@ -36,25 +36,40 @@ export const styles = StyleSheet.create({
       paddingTop: 15,
       minHeight: 600     
     },
-    textContainer: {
-      borderWidth: 2,
-      borderColor: '#861578',      
+    textContainer: {      
+      flexDirection:'row',
+      justifyContent: 'space-between',
+      alignItems:'center',     
+      borderWidth: 2,        
       marginBottom: 15,
       width: 343,
-      height: 45,
-      justifyContent: 'center',
-      paddingStart: 15
+      height: 55,
+      
+      paddingStart: 15,
+      paddingEnd:15
     },
     text: {
       fontSize: 20,
     },
     modalContainer:{
-     
-     backgroundColor:'red',
-     width:350,
-     height:500,
-     justifyContent: 'center',
-     alignItems:'center'
+     flex:1,
+     backgroundColor:'#861578',
+     justifyContent:'center',
+     alignItems:'center',
+          
+    },
+    modalText:{
+      fontSize:25,
+      fontWeight: '600',
+      color:'white',
+      textAlign:'center',
+      marginBottom:55      
+    },
+    buttonModalContainer:{      
+      flexDirection:'row',      
+    },
+    buttonModal:{
+      margin:5
     }
   });
   
