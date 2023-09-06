@@ -11,7 +11,7 @@ export default function App() {
   const [textValue, setTextValue] = useState('')
   const [list, setList] = useState([])
   const [visibleModal, setVisibleModal] = useState(false)
-  const [deleteModalItem, setDeleteModalItem] = useState({})
+  const [selectedItemDelete, setSelectedItemDelete] = useState({})
 
   const onHandleChange = text => setTextValue(text)
 
@@ -20,10 +20,14 @@ export default function App() {
     setTextValue('')
   }
 
-  const deleteModal = (item) => {
+  const selectedItem = (item) => {
     setVisibleModal(true)
-    setDeleteModalItem(item)
-   
+    setSelectedItemDelete(item)   
+  }
+
+  const deleteItem = () => {   
+    setList(list.filter(item => item.id != selectedItemDelete.id))
+    setVisibleModal(false)
   }
 
   return (
@@ -39,8 +43,8 @@ export default function App() {
         </TextInput>
 
         <View style={styles.button}>
-          <Button title='+' color="warning" onPress={addItem} >
-            <Icon name="save" color="white" />
+          <Button  color="warning" onPress={addItem} >
+            <Icon name="save" color="white" width= {25} />
           </Button>
         </View>
       </View>
@@ -53,7 +57,7 @@ export default function App() {
               <View style={styles.textContainer} >
                 <Text style={styles.text}>{item.value}</Text>
                 <View>
-                  <Button color="error" onPress={() => deleteModal(item)}>
+                  <Button color="error" onPress={() => selectedItem(item)}>
                     <Icon name="delete" color="white" />
                   </Button>
                 </View>
@@ -68,9 +72,9 @@ export default function App() {
         visible={visibleModal}      >
         <View style={styles.modalContainer}>
           <Text style={styles.modalText}>Esta seguro que desea eliminar </Text>
-          <Text style={styles.modalText2} >{deleteModalItem.value}</Text>
+          <Text style={styles.modalText2} >{selectedItemDelete.value}</Text>
           <View style={styles.buttonModalContainer}>
-            <Button color="warning"
+            <Button 
               titleStyle={{
                 color: 'white',
                 marginHorizontal: 20,
@@ -79,7 +83,7 @@ export default function App() {
               buttonStyle={{
                 width: 165,
                 margin:5,
-                borderRadius: 15
+                borderRadius: 15,                
               }}
               onPress={() => setVisibleModal(false)}
             >
@@ -87,7 +91,7 @@ export default function App() {
             </Button>
 
 
-            <Button color="warning"
+            <Button color="error"
               titleStyle={{
                 color: 'white',
                 marginHorizontal: 20,
@@ -98,7 +102,7 @@ export default function App() {
                 borderRadius: 15,
                 margin:5,
               }}
-              onPress={() => setVisibleModal(false)}
+              onPress={deleteItem}
             >
               Confirmar
             </Button>

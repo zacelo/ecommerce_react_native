@@ -11,22 +11,22 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       borderWidth: 3,
       borderColor: '#861578',
-      margin: 7,
+      margin: 6,
       marginTop: 30,
       marginBottom: 20
   
     },
     input: {
       width: 290,
-      height: 40,
+      height: 42,
       margin: 12,
       borderWidth: 1,
       padding: 10,
+     fontSize:19
     },
     button: {
-      width: 50,
-      height: 42,
-     
+      width: 55,
+      height: 43,
     },
     listContainer: {
       alignItems: 'center',
